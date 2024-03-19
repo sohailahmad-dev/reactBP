@@ -4,17 +4,13 @@
     align-items: center;
     cursor: pointer;
     max-width: 90%;
-    width: 428px;
-    height: 50px;
-    border-radius: 32px;
+    padding: 12px 50px;
+    border-radius: 15px;
     margin: 8px 0px;
-    background-color: var(--accent-bg);
-    /* background-image: linear-gradient(#0071D4, #006AC7, var(--primary-bg)); */
+    background-color: var(--primary-bg);
     color: white;
     outline: none;
     border: none;
-    font-family: Poppins-SemiBold, 'Courier New', Courier, monospace;
-    font-size: 17px;
 }
 
 .button:hover {

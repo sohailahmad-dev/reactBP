@@ -9,6 +9,7 @@ import { useEffect } from 'react'
 import Slider from './components/slider/Slider'
 import SliderSimple from './components/sliderSimple/SliderSimple'
 import Testimonial from './components/testimonial/Testimonial'
+import AppRouter from './config/AppRouter'
 
 
 function App() {
@@ -41,13 +42,7 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
-        {/* <p className="poppins-semibold" >Poppins</p> */}
-        {/* <div className="arial" style={{ fontFamily: 'arial' }}>Arial</div> */}
-        <Navbar />
-        <SliderSimple />
-        <Testimonial slides={reviews} />
-      </BrowserRouter>
+      <AppRouter />
     </>
   )
 }

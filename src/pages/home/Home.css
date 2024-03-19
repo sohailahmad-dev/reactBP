@@ -1,0 +1,145 @@
+/* banner section  */
+.home-banner-box {
+    width: 100%;
+    /* height: 600px; */
+    padding: 8% 5%;
+    padding-top: 200px;
+    background: linear-gradient(to right, #000000, #051527, #333333);
+    color: white;
+}
+
+.home-banner-heading {
+    font-family: Poppins-Bold;
+    font-size: 53px;
+    margin-bottom: 10%;
+}
+
+.home-banner-right div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+}
+
+/* section 2  */
+
+.home-sec2-box {
+    background-color: #F9F9F9;
+    text-align: center;
+}
+
+.home-sec2-content {
+    padding: 5% 15%;
+    text-align: center;
+}
+
+.home-sec2-imgs {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.home-sec-2-img {
+    width: 100%;
+}
+
+/* section 3  */
+.home-sec3-box {
+    background: white;
+}
+
+.home-sec3-img {
+    width: 100%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.home-sec3-img:hover {
+    transform: translateY(-5px);
+    /* Move the div 5px upward on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* section 4  */
+.home-sec4-box {
+    background: #F9F9F9;
+}
+
+.home-card1-heading {
+    margin: 10px 0px;
+    font-family: Poppins-SemiBold;
+}
+
+.home-card1-content {
+    font-family: Poppins-Regular, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 25px 0px;
+}
+
+.home-card-btnTxt {
+    color: var(--primary-bg);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+/* section 5  */
+.home-sec5-box {
+    background-color: white;
+}
+
+.cardLeft-desktop {
+    display: block;
+}
+
+.cardLeft-mobile {
+    display: none;
+}
+
+.home-card-data {
+    margin-top: 120px;
+}
+
+.home-card-heading {
+    font-family: Poppins-SemiBold;
+    font-size: 28px;
+}
+
+.home-card-content {
+    font-family: Poppins-Regular;
+    font-size: 17px;
+    margin: 15px 0px;
+}
+
+.home-sec5-author-text {
+    font-size: 30px;
+}
+
+.home-sec5-author-name {
+    margin: 25px 0px;
+}
+
+@media (max-width:699px) {
+    .home-banner-box {
+        padding-top: 150px;
+    }
+
+    .home-banner-heading {
+        font-size: 30px;
+    }
+
+    .home-banner-right div {
+        font-size: 14px;
+    }
+
+    .cardLeft-desktop {
+        display: none;
+    }
+
+    .cardLeft-mobile {
+        display: block;
+    }
+
+    /* section 2  */
+}

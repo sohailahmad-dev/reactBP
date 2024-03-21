@@ -60,6 +60,7 @@ export default function NavBar({ active, hideModal }) {
 
     const onCursorEnter = (val) => {
         if (val) setActiveLink(val);
+        setShowNote(false);
         setMenu(false);
 
     }

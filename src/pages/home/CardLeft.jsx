@@ -5,7 +5,7 @@ import EastIcon from '@mui/icons-material/East';
 
 export const CardLeft = ({ img, heading, content }) => {
     return (
-        <div style={{ marginTop: 30 }}>
+        <div className='card-marginT'>
             <div className="cardLeft-desktop" >
                 <Grid container spacing={5}>
                     <Grid item sm={6} xs={12}>

@@ -38,7 +38,7 @@ import active17 from '../../assets/imgs/active17.png'
 import active18 from '../../assets/imgs/active18.png'
 import { Grid, Modal } from '@mui/material'
 
-export default function ProductsNav({ showNote }) {
+export default function ProductsNav({ showNote, setActiveLink }) {
     let [show, setShow] = useState(true)
     let [hovered, setHovered] = useState('');
     const data1 = [
@@ -142,70 +142,81 @@ export default function ProductsNav({ showNote }) {
     return (
         <>
             <Modal open={show}>
-                <div className='productsNav' onClick={() => setShow(false)} style={{ top: showNote ? '100px' : '65px' }} >
-                    <div className='navedContent'  >
-                        <div className="productsNav-inner">
-                            <div className="naved-innerBox">
-                                <Grid container spacing={2}>
-                                    <Grid item sm={5} xs={10}>
-                                        <div className="naved-heading">Applications</div>
-                                    </Grid>
-                                    <Grid item xs={1} />
-                                    <Grid item sm={2} xs={10}>
-                                        <div className="naved-heading-desktop">Platform</div>
-                                    </Grid>
-                                    <Grid item sm={4} xs={12} />
-                                    <Grid item sm={3} xs={12}>
-                                        <div className="naved-items">
-                                            {data1.map(item => (
-                                                <div className="naved-item" key={item.label} onMouseEnter={() => setHovered(item.label)}>
-                                                    <div className="naved-img-box">
-                                                        {hovered === item.label ? <img src={item.active} alt="img" /> :
-                                                            <img src={item.icon} alt="img" />}
+                <div className="outerModalDiv"
+                    style={{
+                        background: 'rgba(0,0,0,0.5)',
+                        height: '100vh',
+                        display: 'flex',
+                        outline: 'none'
+                    }}
+                >
+                    <div className='productsNav' onClick={() => setShow(false)} style={{ top: showNote ? '100px' : '65px' }} >
+                        <div className='navedContent'  >
+                            <div className="productsNav-inner">
+                                <div className="naved-innerBox">
+                                    <Grid container spacing={2}>
+                                        <Grid item sm={5} xs={10}>
+                                            <div className="naved-heading">Applications</div>
+                                        </Grid>
+                                        <Grid item xs={1} />
+                                        <Grid item sm={2} xs={10}>
+                                            <div className="naved-heading-desktop">Platform</div>
+                                        </Grid>
+                                        <Grid item sm={4} xs={12} />
+                                        <Grid item sm={3} xs={12}>
+                                            <div className="naved-items">
+                                                {data1.map(item => (
+                                                    <div className="naved-item" key={item.label} onMouseEnter={() => setHovered(item.label)}>
+                                                        <div className="naved-img-box">
+                                                            {hovered === item.label ? <img src={item.active} alt="img" /> :
+                                                                <img src={item.icon} alt="img" />}
+                                                        </div>
+                                                        <div className="naved-item-label">{item.label}</div>
+
                                                     </div>
-                                                    <div className="naved-item-label">{item.label}</div>
+                                                ))}
+                                            </div>
+                                        </Grid>
+                                        <Grid item sm={3} xs={12}>
+                                            <div className="naved-items">
+                                                {data2.map(item => (
+                                                    <div className="naved-item" key={item.label} onMouseEnter={() => setHovered(item.label)}>
+                                                        <div className="naved-img-box">
+                                                            {hovered === item.label ? <img src={item.active} alt="img" /> :
+                                                                <img src={item.icon} alt="img" />}
+                                                        </div>
+                                                        <div className="naved-item-label">{item.label}</div>
 
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </Grid>
-                                    <Grid item sm={3} xs={12}>
-                                        <div className="naved-items">
-                                            {data2.map(item => (
-                                                <div className="naved-item" key={item.label} onMouseEnter={() => setHovered(item.label)}>
-                                                    <div className="naved-img-box">
-                                                        {hovered === item.label ? <img src={item.active} alt="img" /> :
-                                                            <img src={item.icon} alt="img" />}
                                                     </div>
-                                                    <div className="naved-item-label">{item.label}</div>
+                                                ))}
+                                            </div>
+                                        </Grid>
+                                        <Grid item sm={3} xs={12}>
+                                            <div className="naved-items">
+                                                {data3.map(item => (
+                                                    <div className="naved-item" key={item.label} onMouseEnter={() => setHovered(item.label)}>
+                                                        <div className="naved-img-box">
+                                                            {hovered === item.label ? <img src={item.active} alt="img" /> :
+                                                                <img src={item.icon} alt="img" />}
+                                                        </div>
+                                                        <div className="naved-item-label">{item.label}</div>
 
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </Grid>
-                                    <Grid item sm={3} xs={12}>
-                                        <div className="naved-items">
-                                            {data3.map(item => (
-                                                <div className="naved-item" key={item.label} onMouseEnter={() => setHovered(item.label)}>
-                                                    <div className="naved-img-box">
-                                                        {hovered === item.label ? <img src={item.active} alt="img" /> :
-                                                            <img src={item.icon} alt="img" />}
                                                     </div>
-                                                    <div className="naved-item-label">{item.label}</div>
-
-                                                </div>
-                                            ))}
-                                        </div>
+                                                ))}
+                                            </div>
+                                        </Grid>
                                     </Grid>
-                                </Grid>
 
+                                </div>
+                                {/* bottom bar  */}
+                                <div className="productsNav-bottom">Control all your spend before it happens, all in one place. <span> Get Started</span></div>
                             </div>
-                            {/* bottom bar  */}
-                            <div className="productsNav-bottom">Control all your spend before it happens, all in one place. <span> Get Started</span></div>
                         </div>
                     </div>
+                    <div style={{ flex: 1, background: 'transparent' }} onMouseEnter={() => setActiveLink('')} />
                 </div>
             </Modal>
+
         </>
     )
 }

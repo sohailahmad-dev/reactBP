@@ -60,17 +60,24 @@ export default function NavBar({ active, hideModal }) {
 
     const onCursorEnter = (val) => {
         if (val) setActiveLink(val);
-        setShowNote(false);
         setMenu(false);
-
     }
+
+    useEffect(() => {
+        console.log(activeLink)
+    }, [activeLink])
 
 
 
 
     return (
         <div className="navBar-Parent">
-            <div className="navBar-note" style={{ display: showNote ? 'block' : 'none' }}>🚀 The Winter '24 Release is here — with smarter bill pay, spend limits, and more </div>
+            <div className="navBar-note"
+                style={{
+                    display: showNote ? 'block' : 'none',
+                    opacity: (activeLink === '') ? 1 : 0.3,
+                }}
+            >🚀 The Winter '24 Release is here — with smarter bill pay, spend limits, and more </div>
             <div className="navBar">
                 <div className="icon">
                     {(menu === false) ? <MenuIcon onClick={() => setMenu(!menu)} /> : <CloseIcon onClick={() => setMenu(!menu)} />}
@@ -128,9 +135,11 @@ export default function NavBar({ active, hideModal }) {
                         />
                     </div>
                 </div>
-                {activeLink === 'Products' && <ProductsNav showNote={showNote} />}
-                {activeLink === 'Solutions' && <SolutionsNav showNote={showNote} />}
-                {activeLink === 'Resources' && <ResourcesNav showNote={showNote} />}
+                {activeLink === 'Products' && <ProductsNav showNote={showNote}
+                    setActiveLink={setActiveLink}
+                />}
+                {activeLink === 'Solutions' && <SolutionsNav showNote={showNote} setActiveLink={setActiveLink} />}
+                {activeLink === 'Resources' && <ResourcesNav showNote={showNote} setActiveLink={setActiveLink} />}
             </div>
         </div >
     )

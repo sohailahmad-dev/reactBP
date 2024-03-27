@@ -121,21 +121,23 @@ export default function Home() {
     let sliderRef = useRef(null);
 
     const prevSlide = () => {
-        sliderRef.slickPrev();
         if (currentSlide > 0) {
             setCurrentSlide(currentSlide - 1);
-        } else {
-            setCurrentSlide(sliderData.length - 1)
+            sliderRef.slickPrev();
         }
+        // else {
+        //     setCurrentSlide(sliderData.length - 1)
+        // }
     }
 
     const nextSlide = () => {
-        sliderRef.slickNext();
         if (currentSlide < (sliderData.length - 1)) {
             setCurrentSlide(currentSlide + 1);
-        } else {
-            setCurrentSlide(0);
+            sliderRef.slickNext();
         }
+        // else {
+        //     setCurrentSlide(0);
+        // }
     }
     return (
         <>
@@ -340,9 +342,19 @@ export default function Home() {
                         }}
                     >
                         <div className='slider-navigation'>
-                            <img onClick={prevSlide} src={prev} alt="prev" />
-                            <img onClick={nextSlide} src={next} alt="next" />
-                        </div>``
+                            <img onClick={prevSlide} src={prev} alt="prev"
+                                style={{
+                                    opacity: currentSlide === 0 ? 0.5 : 1,
+                                    cursor: currentSlide === 0 ? 'default' : 'pointer'
+                                }}
+                            />
+                            <img onClick={nextSlide} src={next} alt="next"
+                                style={{
+                                    opacity: currentSlide === (sliderData.length - 1) ? 0.5 : 1,
+                                    cursor: currentSlide === (sliderData.length - 1) ? 'default' : 'pointer'
+                                }}
+                            />
+                        </div>
                         <div
                             style={{
                                 position: 'absolute',

@@ -258,6 +258,7 @@
     gap: 30px;
     margin-left: 20px;
     margin-top: 20px;
+    z-index: 5;
 }
 
 .slider-navigation img {
@@ -303,7 +304,9 @@
 
     .slider-navigation {
         margin-top: 50px;
+
     }
+
 
     .card-marginT {
         margin-top: 10px;

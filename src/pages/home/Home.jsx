@@ -117,7 +117,26 @@ export default function Home() {
             }
         ]
     };
+    let [currentSlide, setCurrentSlide] = useState(0);
     let sliderRef = useRef(null);
+
+    const prevSlide = () => {
+        sliderRef.slickPrev();
+        if (currentSlide > 0) {
+            setCurrentSlide(currentSlide - 1);
+        } else {
+            setCurrentSlide(sliderData.length - 1)
+        }
+    }
+
+    const nextSlide = () => {
+        sliderRef.slickNext();
+        if (currentSlide < (sliderData.length - 1)) {
+            setCurrentSlide(currentSlide + 1);
+        } else {
+            setCurrentSlide(0);
+        }
+    }
     return (
         <>
             <NavBar hideModal={hideModal} />
@@ -292,9 +311,9 @@ export default function Home() {
                     </div>
                 </section>
                 {/* section 8  */}
-                <section className="home-sec8-box padding">
+                <section className="home-sec8-box" style={{ paddingBottom: '30px' }}>
                     <div className="global-heading1">Insights on AI- powered iveew chatbot.</div>
-                    <div className='home-slider margin-home' >
+                    <div className='home-slider margin-home padding' style={{ paddingBottom: '10px' }} >
                         <Slider
                             ref={slider => {
                                 sliderRef = slider;
@@ -308,10 +327,34 @@ export default function Home() {
                                 </div>
                             ))}
                         </Slider>
-                        <div className='slider-navigation'>
-                            <img onClick={() => sliderRef.slickPrev()} src={prev} alt="prev" />
-                            <img onClick={() => sliderRef.slickNext()} src={next} alt="next" />
-                        </div>
+                    </div>
+                    <div className='slider-navigation'>
+                        <img onClick={prevSlide} src={prev} alt="prev" />
+                        <img onClick={nextSlide} src={next} alt="next" />
+                    </div>
+                    {/* slider ruler  */}
+                    <div
+                        style={{
+                            height: '5px',
+                            background: 'lightgray',
+                            width: '100%',
+                            marginTop: '-25px',
+                            position: 'relative'
+                        }}
+                    >
+                        <div
+                            style={{
+                                position: 'absolute',
+                                top: '0px',
+                                height: '5px',
+                                background: 'gray',
+                                zIndex: 2,
+                                transition: '0.5s ease',
+                                width: `${100 / sliderData.length}%`,
+                                left: `${currentSlide * (100 / sliderData.length)}%`,
+                                borderRadius: '5px'
+                            }}
+                        />
                     </div>
                 </section>
                 {/* Footer  */}

@@ -328,20 +328,21 @@ export default function Home() {
                             ))}
                         </Slider>
                     </div>
-                    <div className='slider-navigation'>
-                        <img onClick={prevSlide} src={prev} alt="prev" />
-                        <img onClick={nextSlide} src={next} alt="next" />
-                    </div>
+
                     {/* slider ruler  */}
                     <div
                         style={{
                             height: '5px',
                             background: 'lightgray',
                             width: '100%',
-                            marginTop: '-25px',
+                            margin: '5% 0px',
                             position: 'relative'
                         }}
                     >
+                        <div className='slider-navigation'>
+                            <img onClick={prevSlide} src={prev} alt="prev" />
+                            <img onClick={nextSlide} src={next} alt="next" />
+                        </div>``
                         <div
                             style={{
                                 position: 'absolute',
